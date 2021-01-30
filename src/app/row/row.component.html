@@ -1,1 +1,38 @@
-<p>row works!</p>
+<ul class="unstyle stock-list">
+    <li *ngFor="let stock of stocks" class="stock-list-item container">
+        <div class="column brand">
+            <span>{{ stock.name[0] }}</span> 
+        </div>
+        
+        <div class="column company">
+            <h3 class="company-name">
+                {{ stock.name }}
+            </h3>
+        </div>
+        
+        <div class="column symbol">
+            <p class="ticker-symbol">
+                {{ stock.symbol }} 
+            </p>
+        </div>
+
+        <div class="column value">
+            <p class="initial-value">
+                {{ stock.price }} $
+            </p>
+            <p class="initial-value-label sub-text">
+                Initial value
+            </p>
+        </div>
+
+        <div class="column change">
+            <p class="return-value up">
+                {{ stock.price }} $
+            </p>
+            <p class="return-value-label sub-text">
+                All time change
+            </p>
+        </div>
+
+    </li>
+</ul>
