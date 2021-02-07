@@ -13,7 +13,8 @@ export class RowComponent implements OnInit {
   constructor(private stockService: StockService) { }
 
   getStocks(): void {
-    this.stocks  = this.stockService.getStocks();
+    this.stockService.getStocks()
+        .subscribe(stocks => this.stocks = stocks);
   }
 
   ngOnInit(): void {
