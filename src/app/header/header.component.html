@@ -1,0 +1,17 @@
+<header>
+    <div class="container">
+        <h1 class="site-title">{{ title }}</h1>
+
+        <div class="current-day">
+            Current Day
+            <p>{{ currentDay }}</p>
+        </div>
+
+        <div class="stimulated-day">
+            Stimulated Day
+            <p>{{ stimulatedDay | date: dateFormat }}</p>
+        </div>
+
+        <button (click)="onNextDay()" class="primary-btn">Next Day</button>
+    </div>
+</header>

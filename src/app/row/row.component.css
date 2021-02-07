@@ -4,7 +4,7 @@
 
 .stock-list-item {
   padding: 0;
-  border: 2px solid #e5ecf2;
+  border: 2px solid var(--gray);
   border-radius: 10px;
   padding: 2rem;
   margin-bottom: 1rem;

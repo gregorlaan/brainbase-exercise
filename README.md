@@ -54,5 +54,5 @@ Note: The day one would be June 16, If the current date on the PC is June 15.
 
 - The user must be able to:
   - Forward time globally by 1 day with a click of a button
-  - Each time a day passes, value of each company must change +/-10%
+  - Each time a day passes, value of each company must change +/-10% randomly
   - The change must be random and each companies value must be generated seprately
