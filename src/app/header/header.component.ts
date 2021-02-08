@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StockService } from '../stock.service';
 
 @Component({
   selector: 'app-header',
@@ -10,13 +11,10 @@ export class HeaderComponent implements OnInit {
   dateFormat: string = 'EEEE, MMMM dd, yyyy';
   currentDay: number = 0;
   stimulatedDay: Date = new Date();
-  registerForm: unknown;
 
-
-  constructor() { }
+  constructor(private stockService: StockService) { }
 
   ngOnInit(): void {
-
   }
 
   onNextDay(): void {
@@ -24,5 +22,7 @@ export class HeaderComponent implements OnInit {
 
     this.stimulatedDay = new Date(this.stimulatedDay);
     this.stimulatedDay.setDate(this.stimulatedDay.getDate() + 1);
+
+    this.stockService.triggerChange();
   }
 }

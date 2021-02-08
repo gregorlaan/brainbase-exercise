@@ -34,9 +34,20 @@ export class StockService {
     }
   ];
 
+  constructor() {}
+
   getStocks(): Observable<Stock[]> {
     return of(this.stocks);
   }
 
-  constructor() { }
+  triggerChange(): void {
+    let trend = [
+      function(stock: Stock) { return stock.price * 1.1 },
+      function(stock: Stock) { return stock.price / 1.1 },
+    ];
+
+    this.stocks.forEach(stock => {
+      stock.price = trend[Math.floor(Math.random() * 2)](stock);
+    });
+  }
 }
