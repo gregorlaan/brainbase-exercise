@@ -19,7 +19,7 @@
 
             <div class="column value">
                 <p class="initial-value">
-                    {{ stock.price | currency }} $
+                    {{ stock.price | currency }}
                 </p>
                 <p class="initial-value-label sub-text">
                     Initial value
@@ -27,8 +27,13 @@
             </div>
 
             <div class="column change">
-                <p class="return-value up">
-                    {{ stock.price | currency }} $
+                <p
+                    class="return-value"
+                    [class.up]="stock.change && stock.change > stock.price"
+                    [class.down]="stock.change && stock.change < stock.price"
+
+                >
+                     {{ stock.change | currency }}
                 </p>
                 <p class="return-value-label sub-text">
                     All time change

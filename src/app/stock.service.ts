@@ -47,7 +47,7 @@ export class StockService {
     ];
 
     this.stocks.forEach(stock => {
-      stock.price = trend[Math.floor(Math.random() * 2)](stock);
+      stock.change = trend[Math.floor(Math.random() * 2)](stock);
     });
   }
 }
