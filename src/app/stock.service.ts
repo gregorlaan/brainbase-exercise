@@ -47,9 +47,14 @@ export class StockService {
     ];
 
     this.stocks.forEach(stock => {
-      let price: number = stock.change === undefined ? stock.price : stock.change;
+      let price: number = stock.current === undefined ? stock.price : stock.current;
+      let current: number = trend[Math.floor(Math.random() * 2)](price);
+      let change: number = Math.round((current - stock.price) * 100) / 100;
+      let changePercentage: number = (current - stock.price) / stock.price;
 
-      stock.change = trend[Math.floor(Math.random() * 2)](price);
+      stock.current = current;
+      stock.change = change;
+      stock.changePercentage = changePercentage;
     });
   }
 }

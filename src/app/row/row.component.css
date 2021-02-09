@@ -24,7 +24,8 @@
   }
 
   .column.brand,
-  .column.company {
+  .column.company,
+  .column.symbol {
     justify-content: center;
     grid-column-start: 1;
     grid-column-end: 4;
@@ -33,14 +34,14 @@
 
 @media screen and (min-width: 1200px) {
   .stock-list-item {
-    grid-template-columns: 120px 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 120px 1fr 1fr 1fr 1fr 1fr 1.5fr;
   }
 
   .column.company {
     grid-column-start: 2;
     grid-column-end: 4;
-    grid-row-end: 2;
     grid-row-start: 1;
+    grid-row-end: 2;
   }
 
   .column {
@@ -92,11 +93,17 @@
   margin-bottom: 1rem;
 }
 
-.ticker-symbol, 
-.initial-value, 
-.return-value {
+.ticker-symbol,
+.initial-value,
+.current-value,
+.change-value {
   font-size: 2rem;
   font-weight: 700;
+}
+
+.change-percent {
+  margin-left: 0.5rem;
+  font-size: 1rem;
 }
 
 .ticker-symbol {
@@ -107,10 +114,10 @@
   color: #8d98af;
 }
 
-.return-value.up {
+.green-text {
   color: #00bf71;
 }
 
-.return-value.down {
+.red-text {
   color: #ff5e57;
 }

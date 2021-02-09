@@ -26,15 +26,30 @@
                 </p>
             </div>
 
+            <div class="column current">
+                <p
+                    class="current-value"
+                    [class.green-text]="stock.current && stock.current > stock.price"
+                    [class.red-text]="stock.current && stock.current < stock.price"
+                    [title]="stock.current"
+                >
+                    {{ stock.current || stock.price | currency  }}
+                </p>
+                <p class="current-value-label sub-text">
+                    Current value
+                </p>
+            </div>
+
             <div class="column change">
                 <p
-                    class="return-value"
-                    [class.up]="stock.change && stock.change > stock.price"
-                    [class.down]="stock.change && stock.change < stock.price"
+                    class="change-value"
+                    [class.green-text]="stock.change && stock.change > 0"
+                    [class.red-text]="stock.change && stock.change < 0"
                 >
-                     {{ stock.change || 0 | currency  }}
+                    <span class="change-net">{{ stock.change || 0 | currency  }}</span>
+                    <span class="change-percent">{{ stock.changePercentage || 0  | percent }}</span>
                 </p>
-                <p class="return-value-label sub-text">
+                <p class="change-value-label sub-text">
                     All time change
                 </p>
             </div>
