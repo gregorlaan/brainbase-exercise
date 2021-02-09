@@ -31,7 +31,6 @@
                     class="return-value"
                     [class.up]="stock.change && stock.change > stock.price"
                     [class.down]="stock.change && stock.change < stock.price"
-
                 >
                      {{ stock.change | currency }}
                 </p>

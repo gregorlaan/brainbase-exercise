@@ -41,13 +41,15 @@ export class StockService {
   }
 
   triggerChange(): void {
-    let trend = [
-      function(stock: Stock) { return stock.price * 1.1 },
-      function(stock: Stock) { return stock.price / 1.1 },
+    let trend: Array<(key: number) => number> = [
+      function(price: number): number { return price * 1.1 },
+      function(price: number): number { return price / 1.1 },
     ];
 
     this.stocks.forEach(stock => {
-      stock.change = trend[Math.floor(Math.random() * 2)](stock);
+      let price: number = stock.change === undefined ? stock.price : stock.change;
+
+      stock.change = trend[Math.floor(Math.random() * 2)](price);
     });
   }
 }
