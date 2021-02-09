@@ -32,7 +32,7 @@
                     [class.up]="stock.change && stock.change > stock.price"
                     [class.down]="stock.change && stock.change < stock.price"
                 >
-                     {{ stock.change | currency }}
+                     {{ stock.change || 0 | currency  }}
                 </p>
                 <p class="return-value-label sub-text">
                     All time change
