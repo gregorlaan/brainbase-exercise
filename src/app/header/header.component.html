@@ -1,6 +1,6 @@
 <header>
     <div class="container">
-        <div class="column">
+        <div class="column title">
             <h1 class="site-title">{{ title }}</h1>
         </div>
 
@@ -14,7 +14,7 @@
             <p>{{ stimulatedDay | date: dateFormat }}</p>
         </div>
 
-        <div class="column">
+        <div class="column btn">
             <button (click)="onNextDay()" class="primary-btn">Next Day</button>
         </div>
     </div>
