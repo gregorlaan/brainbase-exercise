@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Stock } from './stock';
 import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StockService {
+/* Get data after the API has gone offline */
+/*
   stocks: Stock[] = [
     {
       "symbol": "AAPL",
@@ -33,8 +36,18 @@ export class StockService {
       "price": 57
     }
   ];
+ */
 
-  constructor() {}
+  public stocks: Stock[] = [];
+  private stocksUrl: string = 'https://staging-api.brainbase.com/stocks.php';
+
+  constructor(
+    private http: HttpClient
+  ) { }
+
+  async getStocksInit(): Promise<void> {
+    this.stocks = await this.http.get<Stock[]>(this.stocksUrl).toPromise();
+  }
 
   getStocks(): Observable<Stock[]> {
     return of(this.stocks);

@@ -8,16 +8,16 @@ import { Stock } from '../stock';
   styleUrls: ['./row.component.css']
 })
 export class RowComponent implements OnInit {
-  stocks: Stock[] = [];
+  public stocks: Stock[] = [];
 
   constructor(private stockService: StockService) { }
+
+  ngOnInit(): void {
+    this.getStocks();
+  }
 
   getStocks(): void {
     this.stockService.getStocks()
         .subscribe(stocks => this.stocks = stocks);
-  }
-
-  ngOnInit(): void {
-    this.getStocks();
   }
 }

@@ -7,10 +7,10 @@ import { StockService } from '../stock.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  title: string = 'SSA';
-  dateFormat: string = 'EEEE, MMMM dd, yyyy';
-  currentDay: number = 0;
-  stimulatedDay: Date = new Date();
+  public title: string = 'SSA';
+  public dateFormat: string = 'EEEE, MMMM dd, yyyy';
+  public currentDay: number = 0;
+  public stimulatedDay: Date = new Date();
 
   constructor(private stockService: StockService) { }
 

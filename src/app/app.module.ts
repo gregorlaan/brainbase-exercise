@@ -4,6 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { RowComponent } from './row/row.component';
 import { HeaderComponent } from './header/header.component';
+import { HttpClientModule } from '@angular/common/http';
+import { APP_INITIALIZER } from '@angular/core';
+import { StockService } from './stock.service';
 
 @NgModule({
   declarations: [
@@ -12,9 +15,21 @@ import { HeaderComponent } from './header/header.component';
     HeaderComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: stockProviderFactory,
+      deps: [StockService],
+      multi: true
+      },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function stockProviderFactory(provider: StockService) {
+  return () => provider.getStocksInit();
+}
