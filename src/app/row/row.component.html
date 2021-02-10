@@ -29,8 +29,8 @@
             <div class="column current">
                 <p
                     class="current-value"
-                    [class.green-text]="stock.current && stock.current > stock.price"
-                    [class.red-text]="stock.current && stock.current < stock.price"
+                    [class.green-text]="stock.change && stock.change > 0"
+                    [class.red-text]="stock.change && stock.change < 0"
                     [title]="stock.current"
                 >
                     {{ stock.current || stock.price | currency  }}
